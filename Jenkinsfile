@@ -47,11 +47,11 @@ pipeline {
         
             }
         }
-//         stage('MVN SONARQUBE') {
-//             steps {
-//                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
-//             }
-//         }
+        stage('MVN SONARQUBE') {
+            steps {
+                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
+            }
+        }
         
 //           stage("Publish to Nexus Repository Manager") {
 //             steps {
