@@ -20,4 +20,5 @@ public class OperateurRequest {
 	private String prenom;
 	
 	private String password;
+
 }
