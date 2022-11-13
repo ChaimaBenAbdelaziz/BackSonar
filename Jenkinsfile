@@ -8,13 +8,6 @@ pipeline {
         
     } 
   environment {
-//       registry = "ChaimaBenAbdelaziz/tpachat" 
-
-//         registryCredential = 'dockerhub' 
-
-//         dockerImage = ''
-
-//         DOCKERHUB_CREDENTIALS=credentials('dockerhub')
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
         NEXUS_URL = "172.10.0.140:8081"
@@ -23,7 +16,7 @@ pipeline {
     }
       
 
-        
+       
     stages {
         stage('git clone') {
             steps {
