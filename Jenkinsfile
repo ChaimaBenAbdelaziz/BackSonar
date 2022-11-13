@@ -39,11 +39,11 @@ pipeline {
         
             }
         }
-//         stage('MVN SONARQUBE') {
-//             steps {
-//                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
-//             }
-//         }
+        stage('MVN SONARQUBE') {
+            steps {
+                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
+            }
+        }
          stage("Publish to Nexus Repository Manager") {
             steps {
                 script {
@@ -79,14 +79,7 @@ pipeline {
                 }
             }
         }
-       
-//      stage ('NEXUS DEPLOY') {
-//             steps {
-//                 sh 'mvn clean package deploy:deploy-file -DgroupId=com.esprit.examen -DartifactId=tpAchatProject -Dversion=1.0 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=deploymentRepo -Durl=http://172.10.0.140:8081/repository/maven-releases/ -Dfile=target/tpAchatProject-1.0.jar -DskipTests'
-//             }
-//         }
-
-        
+  
 //          stage('push docker hub') {
 //             steps {
 //                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW'
