@@ -8,13 +8,13 @@ pipeline {
         
     } 
   environment {
-      registry = "ChaimaBenAbdelaziz/tpachat" 
+//       registry = "ChaimaBenAbdelaziz/tpachat" 
 
-        registryCredential = 'dockerhub' 
+//         registryCredential = 'dockerhub' 
 
-        dockerImage = ''
+//         dockerImage = ''
 
-        DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+//         DOCKERHUB_CREDENTIALS=credentials('dockerhub')
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
         NEXUS_URL = "172.10.0.140:8081"
