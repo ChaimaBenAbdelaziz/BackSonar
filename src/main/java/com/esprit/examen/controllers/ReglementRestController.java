@@ -2,17 +2,13 @@ package com.esprit.examen.controllers;
 
 import java.util.Date;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
-
 import com.esprit.examen.entities.Reglement;
 import com.esprit.examen.entities.ReglementRequest;
 import com.esprit.examen.services.IReglementService;
-
 import io.swagger.annotations.Api;
-
 @RestController
 @Api(tags = "Gestion des reglements")
 @RequestMapping("/reglement")
@@ -32,16 +28,11 @@ public class ReglementRestController {
     	reg.setMontantRestant(re.getMontantRestant());
     	reg.setPayee(re.getPayee());
     	return reglementService.addReglement(reg);
-
-
-    	
-        
     }
     @GetMapping("/retrieve-all-reglements")
     @ResponseBody
     public List<Reglement> getReglement() {
-    	return reglementService.retrieveAllReglements();
-        
+    	return reglementService.retrieveAllReglements();   
     }
 
     
