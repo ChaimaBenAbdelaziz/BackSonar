@@ -29,7 +29,7 @@ public class ReglementRestController {
     @ResponseBody
     public Reglement addReglement(@RequestBody ReglementRequest re) {
     	  ModelMapper modelMapper = new ModelMapper();
-    	return reglementService.addReglement(modelMapper.map(ReglementRequest, Reglement.class));
+    	return reglementService.addReglement(modelMapper.map(re, Reglement.class));
         
     }
     @GetMapping("/retrieve-all-reglements")
