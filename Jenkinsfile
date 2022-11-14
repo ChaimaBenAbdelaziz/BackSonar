@@ -8,26 +8,18 @@ pipeline {
         
     } 
   environment {
-      registry = "chamsbenrezigue/tpachat" 
-
-        registryCredential = 'dockerhub' 
-
-        dockerImage = ''
-
-        DOCKERHUB_CREDENTIALS=credentials('dockerhub')
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
         NEXUS_URL = "172.10.0.140:8081"
-        NEXUS_REPOSITORY = "maven-nexus-repo1"
+        NEXUS_REPOSITORY = "maven-nexus-repo"
         NEXUS_CREDENTIAL_ID = "nexus-user-credentials"
     }
       
-
-        
+    
     stages {
         stage('git clone') {
             steps {
-               git branch: 'chames-devops', url: 'https://github.com/iheeb9/devops_pipline'
+               git branch: 'master', url: 'https://github.com/ChaimaBenAbdelaziz/SpringDevops'
         
             }
         }
@@ -52,8 +44,7 @@ pipeline {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
             }
         }
-        
-          stage("Publish to Nexus Repository Manager") {
+         stage("Publish to Nexus Repository Manager") {
             steps {
                 script {
                     pom = readMavenPom file: "pom.xml";
@@ -88,17 +79,13 @@ pipeline {
                 }
             }
         }
-       
-
-     
-
-        
-         stage('push docker hub') {
-            steps {
-                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW'
+  
+//          stage('push docker hub') {
+//             steps {
+//                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW'
    
-            }
-        }
+//             }
+//         }
         
 //                  stage('Building our image') {
 //                  			steps {
@@ -121,12 +108,12 @@ pipeline {
 
 //                          }
         
-           stage(' docker-compose') {
-            steps {
-                sh 'docker-compose -f docker-compose-app.yml up -d'
+//            stage(' docker-compose') {
+//             steps {
+//                 sh 'docker-compose -f docker-compose-app.yml up -d'
    
-            }
-        }
+//             }
+//         }
         
                
 //          stage('Building our image') {
@@ -188,7 +175,7 @@ pipeline {
       post{
         always{
         
-        emailext body: 'jenkins', subject: 'jenkins', to: 'chames.benrezigue@esprit.tn'
+        emailext body: 'jenkins', subject: 'jenkins', to: 'chaima.benabdelaziz@esprit.tn'
         }
         
     }    
