@@ -9,14 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
 @Entity
-@Getter
-@AllArgsConstructor
-@NoArgsConstructor
 public class Reglement implements Serializable{
 	private static final long serialVersionUID = 1L;
 
@@ -28,6 +21,39 @@ public class Reglement implements Serializable{
 	private Boolean payee;
 	@Temporal(TemporalType.DATE)
 	private Date dateReglement;
-
+	public Long getIdReglement() {
+		return idReglement;
+	}
+	public void setIdReglement(Long idReglement) {
+		this.idReglement = idReglement;
+	}
+	public float getMontantPaye() {
+		return montantPaye;
+	}
+	public void setMontantPaye(float montantPaye) {
+		this.montantPaye = montantPaye;
+	}
+	public float getMontantRestant() {
+		return montantRestant;
+	}
+	public void setMontantRestant(float montantRestant) {
+		this.montantRestant = montantRestant;
+	}
+	public Boolean getPayee() {
+		return payee;
+	}
+	public void setPayee(Boolean payee) {
+		this.payee = payee;
+	}
+	public Date getDateReglement() {
+		return dateReglement;
+	}
+	public void setDateReglement(Date dateReglement) {
+		this.dateReglement = dateReglement;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
 	
 }
