@@ -16,8 +16,8 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class Reglement implements Serializable{
 	private static final long serialVersionUID = 1L;
 
@@ -29,4 +29,5 @@ public class Reglement implements Serializable{
 	private Boolean payee;
 	@Temporal(TemporalType.DATE)
 	private Date dateReglement;
+	
 }
