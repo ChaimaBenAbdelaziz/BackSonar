@@ -6,7 +6,6 @@ package com.esprit.examen.entities;
 
 public class OperateurRequest {
 
-	
 	private Long idOperateur;
 	private String nom;
 	private String prenom;

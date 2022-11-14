@@ -2,10 +2,6 @@ package com.esprit.examen.entities;
 
 import java.util.Date;
 
-
-
-
-
 public class ReglementRequest {
 
 	private Long idReglement;
@@ -16,7 +12,6 @@ public class ReglementRequest {
 	
 	public ReglementRequest() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	public ReglementRequest(Long idReglement, float montantPaye, float montantRestant, Boolean payee,

@@ -7,10 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
-
 @Entity
-
 public class Operateur implements Serializable{
 	private static final long serialVersionUID = 1L;
 
@@ -25,7 +22,6 @@ public class Operateur implements Serializable{
 
 	public Operateur() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Operateur(Long idOperateur, String nom, String prenom, String password) {
@@ -71,6 +67,5 @@ public class Operateur implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
 	
 }

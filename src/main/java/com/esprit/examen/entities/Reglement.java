@@ -9,9 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
 @Entity
-
 public class Reglement implements Serializable{
 	private static final long serialVersionUID = 1L;
 
@@ -56,6 +54,5 @@ public class Reglement implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
 	
 }
