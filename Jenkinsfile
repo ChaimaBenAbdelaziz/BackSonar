@@ -8,6 +8,11 @@ pipeline {
         
     } 
   environment {
+       registry = "chaimabenabdelaziz/tpachat" 
+        registryCredential = 'dockerhub' 
+        dockerImage = ''
+
+        DOCKERHUB_CREDENTIALS=credentials('dockerhub')
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
         NEXUS_URL = "172.10.0.140:8081"
@@ -15,7 +20,6 @@ pipeline {
         NEXUS_CREDENTIAL_ID = "nexus-user-credentials"
     }
       
-    
     stages {
         stage('git clone') {
             steps {
@@ -30,7 +34,6 @@ pipeline {
         
             }
         }
-        
         
          stage('mvn test') {
             steps {
@@ -80,12 +83,12 @@ pipeline {
             }
         }
   
-//          stage('push docker hub') {
-//             steps {
-//                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW'
+         stage('push docker hub') {
+            steps {
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW'
    
-//             }
-//         }
+            }
+        }
         
 //                  stage('Building our image') {
 //                  			steps {
@@ -108,12 +111,12 @@ pipeline {
 
 //                          }
         
-//            stage(' docker-compose') {
-//             steps {
-//                 sh 'docker-compose -f docker-compose-app.yml up -d'
+           stage(' docker-compose') {
+            steps {
+                sh 'docker-compose -f docker-compose-app.yml up -d'
    
-//             }
-//         }
+            }
+        }
         
                
 //          stage('Building our image') {
