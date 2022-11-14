@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import com.esprit.examen.entities.Reglement;
 import com.esprit.examen.entities.ReglementRequest;
 import com.esprit.examen.services.IReglementService;
-
+import org.modelmapper.ModelMapper;
 import io.swagger.annotations.Api;
 
 @RestController
@@ -28,12 +28,8 @@ public class ReglementRestController {
     @PostMapping("/add-reglement")
     @ResponseBody
     public Reglement addReglement(@RequestBody ReglementRequest re) {
-    	Reglement reg=new Reglement();
-    	reg.setDateReglement(re.getDateReglement());
-    	reg.setMontantPaye(re.getMontantPaye());
-    	reg.setMontantRestant(re.getMontantRestant());
-    	reg.setPayee(re.getPayee());
-    	return reglementService.addReglement(reg);
+    	  ModelMapper modelMapper = new ModelMapper();
+    	return reglementService.addReglement(modelMapper.map(ReglementRequest, Reglement.class));
         
     }
     @GetMapping("/retrieve-all-reglements")
