@@ -29,13 +29,4 @@ public class Reglement implements Serializable{
 	private Boolean payee;
 	@Temporal(TemporalType.DATE)
 	private Date dateReglement;
-	public Reglement(Long idReglement, float montantPaye, float montantRestant, Boolean payee, Date dateReglement) {
-		super();
-		this.idReglement = idReglement;
-		this.montantPaye = montantPaye;
-		this.montantRestant = montantRestant;
-		this.payee = payee;
-		this.dateReglement = dateReglement;
-	}
-	
 }
