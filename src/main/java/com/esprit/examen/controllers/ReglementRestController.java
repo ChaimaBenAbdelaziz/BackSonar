@@ -3,7 +3,7 @@ package com.esprit.examen.controllers;
 import java.util.Date;
 import java.util.List;
 
-
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
@@ -28,13 +28,8 @@ public class ReglementRestController {
     @PostMapping("/add-reglement")
     @ResponseBody
     public Reglement addReglement(@RequestBody ReglementRequest re) {
-    	Reglement reg=new Reglement();
-    	reg.setDateReglement(re.getDateReglement());
-    	reg.setMontantPaye(re.getMontantPaye());
-    	reg.setMontantRestant(re.getMontantRestant());
-    	reg.setPayee(re.getPayee());
-    	return reglementService.addReglement(reg);
-        
+    	  ModelMapper modelMapper = new ModelMapper();
+    	  return reglementService.addReglement(modelMapper.map(re, Reglement.class));   
     }
     @GetMapping("/retrieve-all-reglements")
     @ResponseBody
