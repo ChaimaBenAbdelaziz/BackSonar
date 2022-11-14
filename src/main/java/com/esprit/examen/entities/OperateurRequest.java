@@ -2,10 +2,6 @@ package com.esprit.examen.entities;
 
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 
 public class OperateurRequest {
