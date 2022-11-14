@@ -27,12 +27,12 @@ public class ReglementRestController {
     
     @PostMapping("/add-reglement")
     @ResponseBody
-    public Reglement addReglement(@RequestBody ReglementRequest r) {
+    public Reglement addReglement(@RequestBody ReglementRequest re) {
     	Reglement reg=new Reglement();
-    	reg.setDateReglement(r.getDateReglement());
-    	reg.setMontantPaye(r.getMontantPaye());
-    	reg.setMontantRestant(r.getMontantRestant());
-    	reg.setPayee(r.getPayee());
+    	reg.setDateReglement(re.getDateReglement());
+    	reg.setMontantPaye(re.getMontantPaye());
+    	reg.setMontantRestant(re.getMontantRestant());
+    	reg.setPayee(re.getPayee());
     	return reglementService.addReglement(reg);
         
     }
