@@ -1,9 +1,6 @@
 package com.esprit.examen.entities;
 
 import java.util.Date;
-
-import javax.persistence.Entity;
-
 import lombok.Getter;
 import lombok.Setter;
 
