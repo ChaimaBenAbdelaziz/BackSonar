@@ -24,29 +24,27 @@ pipeline {
         stage('git clone') {
             steps {
                git branch: 'master', url: 'https://github.com/ChaimaBenAbdelaziz/SpringDevops'
-        
             }
         }
+        
         stage('clean package') {
             steps {
              sh 'mvn clean install -DskipTests=true'
-        
-        
             }
         }
         
          stage('mvn test') {
             steps {
              sh 'mvn test'
-        
-        
             }
         }
+        
         stage('MVN SONARQUBE') {
             steps {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
             }
         }
+        
          stage("Publish to Nexus Repository Manager") {
             steps {
                 script {
@@ -83,33 +81,6 @@ pipeline {
             }
         }
   
-//          stage('push docker hub') {
-//             steps {
-//                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW'
-   
-//             }
-//         }
-        
-//                  stage('Building our image') {
-//                  			steps {
-//                  				script {
-//                  					dockerImage = docker.build registry + ":$BUILD_NUMBER"
-//                  					}
-//                  				}
-//                  		}
-                 		
-        
-
-//         stage('Deploy our image') {
-//                           steps {
-//                           script {
-//                               docker.withRegistry( '', registryCredential ) {
-//                               dockerImage.push()
-//                                 }
-//                              }
-//                            }
-
-//                          }
         
 //            stage(' docker-compose') {
 //             steps {
@@ -127,8 +98,6 @@ pipeline {
 //                  				}
 //                  		}
                  		
-        
-
 //         stage('Deploy our image') {
 //                           steps {
 //                           script {
@@ -137,8 +106,8 @@ pipeline {
 //                                 }
 //                              }
 //                            }
-
 //                          }
+        
 //            stage(' docker-compose') {
 //             steps {
 //                 sh 'docker build -t test .'
@@ -146,32 +115,12 @@ pipeline {
 //             }
 //         } 
                
-       
-//          stage('Building our image') {
-//                  			steps {
-//                  				script {
-//                  					dockerImage = docker.build registry + ":$BUILD_NUMBER"
-//                  					}
-//                  				}
-//                  		}
-//                  		stage('Deploy our image') {
-//                           steps {
-//                           script {
-//                               docker.withRegistry( '', registryCredential ) {
-//                               dockerImage.push()
-//                                 }
-//                              }
-//                            }
-
-//                          }
+        
 //     stage       ('DOCKER COMPOSE') {
 //              steps {
 //                 sh 'docker-compose up  -d'
 //             }
 //         }
-        
-        
-        
      }
     
     
@@ -180,8 +129,5 @@ pipeline {
         
         emailext body: 'jenkins', subject: 'jenkins', to: 'chaima.benabdelaziz@esprit.tn'
         }
-        
     }    
-        
-
 }
