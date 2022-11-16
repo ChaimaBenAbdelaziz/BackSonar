@@ -7,18 +7,18 @@ pipeline {
         maven "MyProjectDevops"
         
     } 
-//   environment {
-//        registry = "chaimabenabdelaziz/tpachat" 
-//         registryCredential = 'dockerhub' 
-//         dockerImage = ''
+  environment {
+       registry = "chaimabenabdelaziz/tpachat" 
+        registryCredential = 'dockerhub' 
+        dockerImage = ''
 
-//         DOCKERHUB_CREDENTIALS=credentials('dockerhub')
-//         NEXUS_VERSION = "nexus3"
-//         NEXUS_PROTOCOL = "http"
-//         NEXUS_URL = "172.10.0.140:8081"
-//         NEXUS_REPOSITORY = "maven-nexus-repo"
-//         NEXUS_CREDENTIAL_ID = "nexus-user-credentials"
-//     }
+        DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+        NEXUS_VERSION = "nexus3"
+        NEXUS_PROTOCOL = "http"
+        NEXUS_URL = "172.10.0.140:8081"
+        NEXUS_REPOSITORY = "maven-nexus-repo"
+        NEXUS_CREDENTIAL_ID = "nexus-user-credentials"
+    }
       
     stages {
         stage('git clone') {
@@ -90,23 +90,23 @@ pipeline {
 //         }
         
                
-         stage('Building our image') {
-                 			steps {
-                 				script {
-                 					dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                 					}
-                 				}
-                 		}
+//          stage('Building our image') {
+//                  			steps {
+//                  				script {
+//                  					dockerImage = docker.build registry + ":$BUILD_NUMBER"
+//                  					}
+//                  				}
+//                  		}
                  		
-        stage('Deploy our image') {
-                          steps {
-                          script {
-                              docker.withRegistry( '', registryCredential ) {
-                              dockerImage.push()
-                                }
-                             }
-                           }
-                         }
+//         stage('Deploy our image') {
+//                           steps {
+//                           script {
+//                               docker.withRegistry( '', registryCredential ) {
+//                               dockerImage.push()
+//                                 }
+//                              }
+//                            }
+//                          }
         
 //            stage(' docker-compose') {
 //             steps {
@@ -116,12 +116,12 @@ pipeline {
 //         } 
                
         
-     stage('DOCKER COMPOSE') {
-              steps {
-                 sh 'docker-compose up  -d'
-             }
-         }
-     }
+//      stage('DOCKER COMPOSE') {
+//               steps {
+//                  sh 'docker-compose up  -d'
+//              }
+//          }
+//      }
     
     
       post{
